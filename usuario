@@ -1,1 +1,31 @@
 
+// 1. O Crie o objeto fixo (Enum) para os turnos.
+const Turno = Object.freeze({
+    MANHA: "Manhã",
+    TARDE: "Tarde",
+    NOITE: "Noite"
+});
+
+// 2. Crie a classe Aluno com o seu constructor.
+class Aluno {
+    constructor(id, nome, dataMatricula, turno) {
+        this.id = id;                     // Número de identificação
+        this.nome = nome;                 // Texto com o nome do aluno
+        this.dataMatricula = dataMatricula; // Texto ou data de quando entrou
+        this.turno = turno;               // Uso do Enum para limitar as opções
+        this.estaAtivo = true;            // Nasce como true por padrão
+    }
+}
+
+// 3. Instancie 2 alunos usando o new.
+const aluno1 = new Aluno(1, "Ana Souza", "2026-02-10", Turno.MANHA);
+const aluno2 = new Aluno(2, "Bruno Lima", "2026-02-11", Turno.TARDE);
+
+// 4. Mude o turno de um deles e desative o outro (estaAtivo = false).
+aluno1.turno = Turno.NOITE;
+aluno2.estaAtivo = false;
+
+// 5. Mostre no console como ficaram.
+console.log("--- Situação Final dos Alunos ---");
+console.log(aluno1);
+console.log(aluno2);
