@@ -1,31 +1,42 @@
+// Classe
 
-// 1. O Crie o objeto fixo (Enum) para os turnos.
-const Turno = Object.freeze({
-    MANHA: "Manhã",
-    TARDE: "Tarde",
-    NOITE: "Noite"
-});
-
-// 2. Crie a classe Aluno com o seu constructor.
-class Aluno {
-    constructor(id, nome, dataMatricula, turno) {
-        this.id = id;                     // Número de identificação
-        this.nome = nome;                 // Texto com o nome do aluno
-        this.dataMatricula = dataMatricula; // Texto ou data de quando entrou
-        this.turno = turno;               // Uso do Enum para limitar as opções
-        this.estaAtivo = true;            // Nasce como true por padrão
-    }
+const Genero ={
+    M:"M",
+    F:"F",
+    OUTRO: "Outro"
 }
 
-// 3. Instancie 2 alunos usando o new.
-const aluno1 = new Aluno(1, "Ana Souza", "2026-02-10", Turno.MANHA);
-const aluno2 = new Aluno(2, "Bruno Lima", "2026-02-11", Turno.TARDE);
 
-// 4. Mude o turno de um deles e desative o outro (estaAtivo = false).
-aluno1.turno = Turno.NOITE;
-aluno2.estaAtivo = false;
+class Usuario {
+    id;
+    nome;
+    senha;
+    dataNascimento;
+    genero;
+    isAdmin;
+    // método Constructor
+    constructor(id, nome, senha, dataNascimento, genero, isAdmin){
+        this.id = id;
+        this.nome = nome;
+        this.senha = senha;
+        this.dataNascimento = new Date (dataNascimento);
+        this.genero = genero;
+        this.isAdmin = false;
 
-// 5. Mostre no console como ficaram.
-console.log("--- Situação Final dos Alunos ---");
-console.log(aluno1);
-console.log(aluno2);
+   }
+   // métodos de classe --> função
+   perfil(){
+    return "Nome: " + this.nome + " - Data de Nascimento: " + this.dataNascimento.toString();
+   }
+
+}
+
+const user1 = new Usuario(1,"Julio","1253","2010-03-12T01:23:12", Genero.M);
+const user2 = new Usuario(2,"Penaldo","183","2015-08-28T00:12:05", Genero.M);
+console.log(user1)
+console.log("oi")
+
+user1.nome = "Julio";
+console.log(user1)
+console.log(user1.perfil())
+console.log(user2.perfil())
