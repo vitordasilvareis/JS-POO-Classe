@@ -11,6 +11,10 @@ class Produto{
         this.nome = nome;
         this.ativo = true;
     }
+
+    info(){
+        return "Produto: " + this.nome + " - " + (this.ativo?"Em estoque!":"Em falta!");
+    }
 }
 // instanciando = construir um objeto
 const p1 = new Produto(1,"Carregador");
