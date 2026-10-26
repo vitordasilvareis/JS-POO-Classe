@@ -30,4 +30,3 @@ console.log(p2);
 p2.disponivel = true;
 console.log(p2);
 console.log("Nome Carro: " + p2.nome +"  status: " + p2.disponivel);
-
